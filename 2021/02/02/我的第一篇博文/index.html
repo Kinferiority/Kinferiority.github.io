@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  
+  <title>使用hexo+github搭建个人博客 - Mr.K</title>
+  
+    <link rel="shortcut icon" href="/source/theme-img/favicon.ico">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+    <body>
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/friends">Friends</a>
+            
+            
+            
+            <a class="nav-item" href="/projects">Projects</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item" target="_blank" rel="noopener" href="https://space.bilibili.com/344213153">Bilibili</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Kinferiority" target="_blank">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        <article class="post">
+    <div class="meta">
+        
+        <div class="date" id="date">
+            
+            
+            <span>February</span>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <span>2,</span>
+            <span>2021</span>
+        </div>
+        
+
+        <h2 class="title">使用hexo+github搭建个人博客</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <p>  一些废话，我可能在文档中中英文混杂，想锻炼写自己的英文写作水平（无聊），希望各位阅读没有障碍</p>
+<a id="more"></a>
+
+<!-- toc -->
+
+<h1 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h1><p><u>环境</u>：macOS Big Sur11.1</p>
+<p><u>使用工具</u>：shell+cnmp+hexo+github</p>
+<p><u>搭建时间</u> ：2021.2.2</p>
+<h1 id="Node-js-Tool"><a href="#Node-js-Tool" class="headerlink" title="Node.js Tool"></a>Node.js Tool</h1><h2 id="Download-Node-js"><a href="#Download-Node-js" class="headerlink" title="Download Node.js"></a>Download Node.js</h2><p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Download</a></p>
+<p>选择长期支持版</p>
+<h2 id="Open-your-terminal"><a href="#Open-your-terminal" class="headerlink" title="Open your terminal"></a>Open your terminal</h2><h3 id="Fundamental-knowledge"><a href="#Fundamental-knowledge" class="headerlink" title="Fundamental knowledge"></a>Fundamental knowledge</h3><p><code>pwd</code>   ==<strong>查看当前目录</strong>==</p>
+<p><code>cd xxx</code>  ==<strong>进入xxx文件</strong>==</p>
+<p><code>mkdir xxx </code>   ==<strong>创建xxx文件夹</strong>==</p>
+<p><code>sudo +命令</code>   ==<strong>在管理员模式下运行命令</strong>==</p>
+<p><code>cd ..</code>   ==<strong>返回上一层目录</strong>==</p>
+<p><code>cd ../..</code>  ==<strong>返回上两层目录</strong>==</p>
+<p><code>ls -l</code>   ==<strong>列出当前目录文件</strong>==</p>
+<h2 id="Take-orders-orderly"><a href="#Take-orders-orderly" class="headerlink" title="Take orders orderly"></a>Take orders orderly</h2><h3 id="Install-hexo"><a href="#Install-hexo" class="headerlink" title="Install hexo"></a>Install hexo</h3><p>1.<code>sudo su</code>  <strong>进入管理员模式</strong></p>
+<p>2.<code>node -v</code> <strong>查看node.js版本</strong></p>
+<p>3<code>.npm -v</code>  <strong>查看npm版本</strong></p>
+<p>nmp 为保管理器，但是由于wall存在，下载速度较慢，我们使用cnpm利用taobao的镜像</p>
+<p>4.<code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code> <strong>-g 表示全局</strong></p>
+<p>5.<code>cnpm -v</code> <strong>查看版本</strong></p>
+<p>6.<code>cnpm install -g hexo-cli</code>   <strong>安装hexo</strong></p>
+<p>7.<code>hexo -v</code><strong>查看hexo版本</strong></p>
+<h3 id="Create-file-folder-‘name-blog’"><a href="#Create-file-folder-‘name-blog’" class="headerlink" title="Create  file folder ‘name_blog’"></a>Create  file folder ‘name_blog’</h3><p>8.<code>pwd</code> <strong>查看当前目录</strong></p>
+<p>9.<code>mkdir name_blog</code> <strong>在当前目录下创建名为name_blog的文件夹</strong></p>
+<p>10.<code>cd name_blog</code> <strong>进入name_blog文件夹</strong></p>
+<h3 id="Init-hexo"><a href="#Init-hexo" class="headerlink" title="Init hexo"></a>Init hexo</h3><p>11.<code>sudo hexo init</code> ==<strong>初始化hexo</strong>==</p>
+<p>12.<code>hexo s </code>==<strong>部署hexo</strong>==</p>
+<h3 id="Validate-hexo"><a href="#Validate-hexo" class="headerlink" title="Validate hexo"></a>Validate hexo</h3><p>13.在Safari中输入命令行中出现的网址：例如 localhost:4000</p>
+<p>14.按下<code>ctrl+z</code>退出</p>
+<h3 id="Create-your-markdown-file"><a href="#Create-your-markdown-file" class="headerlink" title="Create your markdown file"></a>Create your markdown file</h3><p>15.<code>hexo n &quot;我的第一篇博文&quot;</code> <strong>创建我的第一篇博客文章.md文件</strong></p>
+<p>16.观察命令行中出现的文件地址</p>
+<p> 例如/Users/jrk/kjr_blog/source/_posts/我的第一篇博文.md</p>
+<p>17.<code>ls -l</code> <strong>查看当前目录文件</strong></p>
+<p><u>==<strong>_config.yml为hexo配置文件</strong>==</u></p>
+<p>18.<code>cd source/_posts/</code> </p>
+<p>19.<code>ls -l</code> 会发现自己创建的文件</p>
+<h3 id="Vim-your-markdown-file"><a href="#Vim-your-markdown-file" class="headerlink" title="Vim your markdown file"></a>Vim your markdown file</h3><p>20.vim 我的第一篇博文.md</p>
+<p><strong>进入文件后按下I进入编辑模式</strong>，文件格式为.md</p>
+<p><strong>按下esc，在英文状态下输入：wq</strong>==<strong>：wq表示退出并保存</strong>==</p>
+<p>==<strong><u>hexo所有命令行均在name_blog目录下运行</u></strong>==</p>
+<h3 id="Hexo-order"><a href="#Hexo-order" class="headerlink" title="Hexo order"></a>Hexo order</h3><p>21.<code>hexo clean</code> <strong>清理hexo等缓存文件</strong></p>
+<p>22.<code>hexo g</code> <strong>生成hexo等文件</strong> <u>hexo generate</u></p>
+<p>23<code>.hexo s</code> <strong>部署hexo</strong> <u>hexo server</u></p>
+<p>24<code>.cnpm install --save hexo-deployer-git</code> <strong>使用git上传到github</strong></p>
+<p>25.<code>vim _config.yml</code> 修改部分内容(最下面的deploy部分)</p>
+<p>deploy:</p>
+<p> type: ‘git’</p>
+<p> repo: <a target="_blank" rel="noopener" href="https://github.com/xxx/xxx.github.io.git">https://github.com/xxx/xxx.github.io.git</a> </p>
+<p>==<strong>repo为你在github上创建的名为xxx/xxx.github.io的一个仓库</strong>==</p>
+<p> branch: main</p>
+<p><strong>很多视频branch为master，现在GitHub更新了，不再使用master作为默认main了，默认branch为main</strong></p>
+<p>xxx为你的用户名，必须要同名。</p>
+<p>26.<code>hexo d</code> <strong>start deploying</strong></p>
+<p>期间会让你输入GitHub用户名和密码</p>
+<h3 id="You-will-see"><a href="#You-will-see" class="headerlink" title="You will see"></a>You will see</h3><p>27.在Safari中输入xxx/xxx.github.io</p>
+<p>会进入你<strong>创建我的第一篇博客文章.md</strong></p>
+<h3 id="Waring"><a href="#Waring" class="headerlink" title="Waring"></a>Waring</h3><p>如果报错port 4000被占用</p>
+<p>使用该命令 <code>hexo server -p 4001</code> <strong>换个端口</strong></p>
+<p>Typora 中[doc]生效但是网页上不生效：使用<code>&lt;!-- doc --&gt;</code>插件<br><strong>cnpm install hexo-toc –save</strong><br>折叠文章使用<code>&lt;!-- more --&gt;</code>插件</p>
+<p><strong>See you again.</strong></p>
+
+    </div>
+
+    <div class="about">
+        <h1>About this Post</h1>
+        <p>This post is written by Kjr, licensed under <a
+                target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+    </div>
+
+    
+        
+    
+</article>
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h4 class="title">Blog</h4>
+                
+                <a href="/" class="item" target="_blank">Blog</a>
+                
+                <a href="/archives" class="item" target="_blank">Archives</a>
+                
+                <a href="/friends" class="item" target="_blank">Friends</a>
+                
+                <a href="/projects" class="item" target="_blank">Projects</a>
+                
+                <a href="/about" class="item" target="_blank">About</a>
+                
+                <a href="/atom.xml" class="item" target="_blank">RSS</a>
+                
+            </div>
+            
+            <div class="group">
+                <h4 class="title">Me</h4>
+                
+                <a href="https://github.com/Kinferiority" class="item" target="_blank">GitHub</a>
+                
+                <a href="https://space.bilibili.com/344213153" class="item" target="_blank">Bilibili</a>
+                
+                <a href="mailto:kongkjr@qq.com" class="item" target="_blank">Email</a>
+                
+            </div>
+            
+        </div>
+        &copy; 2021 Kjr<br />
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+</footer>
+
+        
+<script src="/js/main.js"></script>
+
+        
+    </body>
+</html>
