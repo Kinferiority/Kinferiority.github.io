@@ -1,121 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-    <!DOCTYPE html>
-<html>
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>修改侧边栏文字</title>
+    <url>/2021/02/03/hexo%E4%BF%AE%E6%94%B9%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%96%87%E5%AD%97/</url>
+    <content><![CDATA[<p> 这玩意，我<strong>真的真的</strong>找了好久答案，我把所有themes中的文件都找了一遍，想找到侧边栏中的文字，结果….，tmd，我说为啥会有一个language 文件夹，原来里面有个文件，设置<strong>中英文对照关系</strong>。</p>
+<a id="more"></a>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-  
-  <title>【Hexo】使用hexo+github搭建个人博客 - Mr.K</title>
-  
-    <link rel="shortcut icon" href="/favicon.ico">
-  
-  
-    <link rel='manifest' href='/manifest.json'>
-  
-
-  
-<link rel="stylesheet" href="/css/var.css">
-
-  
-<link rel="stylesheet" href="/css/main.css">
-
-  
-<link rel="stylesheet" href="/css/typography.css">
-
-  
-<link rel="stylesheet" href="/css/code-highlighting.css">
-
-  
-<link rel="stylesheet" href="/css/components.css">
-
-  
-<link rel="stylesheet" href="/css/nav.css">
-
-  
-<link rel="stylesheet" href="/css/paginator.css">
-
-  
-<link rel="stylesheet" href="/css/footer.css">
-
-  
-<link rel="stylesheet" href="/css/post-list.css">
-
-  
-  
-  
-<link rel="stylesheet" href="/css/post.css">
-
-  
-
-  
-<meta name="generator" content="Hexo 5.3.0"></head>
-    <body>
-        <nav id="theme-nav">
-    <div class="inner">
-        <a class="title" href="/">Blog</a>
-        <div class="nav-arrow"></div>
-        <div class="nav-items">
-            <a class="nav-item nav-item-home" href="/">Home</a>
-            
-            
-            <a class="nav-item" href="/archives">Archives</a>
-            
-            
-            
-            <a class="nav-item" href="/tags/essay">Essay</a>
-            
-            
-            
-            <a class="nav-item" href="/projects">Projects</a>
-            
-            
-            
-            <a class="nav-item" href="/about">About</a>
-            
-            
-            
-            <a class="nav-item" target="_blank" rel="noopener" href="https://space.bilibili.com/344213153">Bilibili</a>
-            
-            
-            
-            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/Kinferiority" target="_blank">&nbsp;</a>
-            
-            
-        </div>
-    </div>
-</nav>
-        <article class="post">
-    <div class="meta">
-        
-        <div class="date" id="date">
-            
-            
-            <span>February</span>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            <span>2,</span>
-            <span>2021</span>
-        </div>
-        
-
-        <h2 class="title">【Hexo】使用hexo+github搭建个人博客</h2>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="content">
-        <p>  一些废话，我可能在文档中中英文混杂，想锻炼写自己的英文写作水平（无聊），希望各位阅读没有障碍</p>
+<h1 id="主题的-cONfig-yml文件："><a href="#主题的-cONfig-yml文件：" class="headerlink" title="主题的_cONfig.yml文件："></a>主题的_cONfig.yml文件：</h1><h2 id="直接敲文字进去？"><a href="#直接敲文字进去？" class="headerlink" title="直接敲文字进去？"></a>直接敲文字进去？</h2><p>==要这样我还能这么生气?==</p>
+<p>1.回到你的blog根目录</p>
+<p>2.键入 <code>hexo new page &quot;不会编程的Kinferiority&quot;</code></p>
+<p>你会发现你的source文件夹中出现了上述文件夹，里面有一个默认的index.html文件</p>
+<p>3.打开主题下的_config.yml文件,在menu中添加上 不会编程的Kinferiority：/</p>
+<p><strong>此处==：/==代表回到主页</strong></p>
+<p>然后我们在创建的文件夹下面继续编写markdown文件就可以啦。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2021/02/03/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>【Hexo】使用hexo+github搭建个人博客</title>
+    <url>/2021/02/02/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E6%96%87/</url>
+    <content><![CDATA[<p>  一些废话，我可能在文档中中英文混杂，想锻炼写自己的英文写作水平（无聊），希望各位阅读没有障碍</p>
 <a id="more"></a>
 
 <!-- toc -->
@@ -123,7 +40,7 @@
 <h1 id="Forward"><a href="#Forward" class="headerlink" title="Forward"></a>Forward</h1><p><u>环境</u>：macOS Big Sur11.1</p>
 <p><u>使用工具</u>：shell+cnmp+hexo+github</p>
 <p><u>搭建时间</u> ：2021.2.2</p>
-<h1 id="Node-js-Tool"><a href="#Node-js-Tool" class="headerlink" title="Node.js Tool"></a>Node.js Tool</h1><h2 id="Download-Node-js"><a href="#Download-Node-js" class="headerlink" title="Download Node.js"></a>Download Node.js</h2><p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Download</a></p>
+<h1 id="Node-js-Tool"><a href="#Node-js-Tool" class="headerlink" title="Node.js Tool"></a>Node.js Tool</h1><h2 id="Download-Node-js"><a href="#Download-Node-js" class="headerlink" title="Download Node.js"></a>Download Node.js</h2><p><a href="https://nodejs.org/zh-cn/">Download</a></p>
 <p>选择长期支持版</p>
 <h2 id="Open-your-terminal"><a href="#Open-your-terminal" class="headerlink" title="Open your terminal"></a>Open your terminal</h2><h3 id="Fundamental-knowledge"><a href="#Fundamental-knowledge" class="headerlink" title="Fundamental knowledge"></a>Fundamental knowledge</h3><p><code>pwd</code>   ==<strong>查看当前目录</strong>==</p>
 <p><code>cd xxx</code>  ==<strong>进入xxx文件</strong>==</p>
@@ -165,7 +82,7 @@
 <p>25.<code>vim _config.yml</code> 修改部分内容(最下面的deploy部分)</p>
 <p>deploy:</p>
 <p> type: ‘git’</p>
-<p> repo: <a target="_blank" rel="noopener" href="https://github.com/xxx/xxx.github.io.git">https://github.com/xxx/xxx.github.io.git</a> </p>
+<p> repo: <a href="https://github.com/xxx/xxx.github.io.git">https://github.com/xxx/xxx.github.io.git</a> </p>
 <p>==<strong>repo为你在github上创建的名为xxx/xxx.github.io的一个仓库</strong>==</p>
 <p> branch: main</p>
 <p><strong>很多视频branch为master，现在GitHub更新了，不再使用master作为默认main了，默认branch为main</strong></p>
@@ -178,61 +95,9 @@
 <p>使用该命令 <code>hexo server -p 4001</code> <strong>换个端口</strong></p>
 <p>Typora 中[doc]生效但是网页上不生效：使用<code>&lt;!-- doc --&gt;</code>插件<br><strong>cnpm install hexo-toc –save</strong><br>折叠文章使用<code>&lt;!-- more --&gt;</code>插件</p>
 <p><strong>See you again.</strong></p>
-
-    </div>
-
-    <div class="about">
-        <h1>About this Post</h1>
-        <p>This post is written by Kjr, licensed under <a
-                target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
-    </div>
-
-    
-        
-    
-</article>
-
-        <footer>
-    <div class="inner">
-        <div class="links">
-            
-            <div class="group">
-                <h4 class="title">Blog</h4>
-                
-                <a href="/" class="item" target="_blank">Blog</a>
-                
-                <a href="/archives" class="item" target="_blank">Archives</a>
-                
-                <a href="/tags/essay" class="item" target="_blank">Essay</a>
-                
-                <a href="/projects" class="item" target="_blank">Projects</a>
-                
-                <a href="/about" class="item" target="_blank">About</a>
-                
-                <a href="/atom.xml" class="item" target="_blank">RSS</a>
-                
-            </div>
-            
-            <div class="group">
-                <h4 class="title">Me</h4>
-                
-                <a href="https://github.com/Kinferiority" class="item" target="_blank">GitHub</a>
-                
-                <a href="https://space.bilibili.com/344213153" class="item" target="_blank">Bilibili</a>
-                
-                <a href="mailto:kongkjr@qq.com" class="item" target="_blank">Email</a>
-                
-            </div>
-            
-        </div>
-        &copy; 2021 Kjr<br />
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-</footer>
-
-        
-<script src="/js/main.js"></script>
-
-        
-    </body>
-</html>
+]]></content>
+      <tags>
+        <tag>essay</tag>
+      </tags>
+  </entry>
+</search>
