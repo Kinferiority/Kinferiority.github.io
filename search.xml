@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>A novel deep framework for dynamic malware detection based on API sequence intrinsic features</title>
+    <title>A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features</title>
     <url>/2023/11/05/A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features/</url>
     <content><![CDATA[<p><a name="U4kBh"></a></p>
 <h4 id="A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features-基于API-序列内在特征并且使用深度学习框架的动态恶意软件检测作者-Ce-Li-a-b-Qiujian-Lva-Ning-Lia-Yan-Wang-a-b-∗-Degang-Sun-a-b-Yuanyuan-Qiao-c"><a href="#A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features-基于API-序列内在特征并且使用深度学习框架的动态恶意软件检测作者-Ce-Li-a-b-Qiujian-Lva-Ning-Lia-Yan-Wang-a-b-∗-Degang-Sun-a-b-Yuanyuan-Qiao-c" class="headerlink" title="**A novel deep framework for dynamic malware detection based on API sequence intrinsic features**基于API 序列内在特征并且使用深度学习框架的动态恶意软件检测作者 Ce Li a,b, Qiujian Lva, Ning Lia, Yan Wang a,b,∗, Degang Sun a,b, Yuanyuan Qiao c"></a>**A novel deep framework for dynamic malware detection based on API sequence intrinsic features<br>**基于API 序列内在特征并且使用深度学习框架的动态恶意软件检测<br>作者 Ce Li a,b, Qiujian Lva, Ning Lia, Yan Wang a,b,∗, Degang Sun a,b, Yuanyuan Qiao c</h4><p><a name="HrPRE"></a></p>
@@ -101,10 +101,10 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/38969425/1697982509557-e2ad6561-22f2-4dcc-bcac-6ec0d6900c5e.png#averageHue=%23f2f1f0&clientId=u5b663740-94d7-4&from=paste&height=263&id=u12772d60&originHeight=526&originWidth=1328&originalType=binary&ratio=2&rotation=0&showTitle=false&size=280916&status=done&style=none&taskId=u4edf7fbf-299e-46b3-83a0-9f38b7582ba&title=&width=664" alt="image.png"></p>
+<p><img src="/2023/11/05/A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features/1697982509557-e2ad6561-22f2-4dcc-bcac-6ec0d6900c5e.png" alt="image.png"></p>
 <ul>
 <li><p><strong>Semantic chain</strong></p>
-<p>API 命名语义上包含这多种信息 例如：<strong>action and operation object</strong>，将单个API可以拆解成以下形式<br><strong>q i =&lt; action i , object i , class i , category i &gt; .</strong><br><img src="https://cdn.nlark.com/yuque/0/2023/png/38969425/1697982835143-b4676c95-5990-4e3e-8384-8891152712e0.png#averageHue=%23ededed&clientId=u5b663740-94d7-4&from=paste&height=182&id=u2a7d4727&originHeight=363&originWidth=740&originalType=binary&ratio=2&rotation=0&showTitle=false&size=61287&status=done&style=none&taskId=u1ea743b1-45c2-49ff-b16a-7e2d7deb77b&title=&width=370" alt="image.png"><br><strong>与上文API Sequence的重定义一样，Semantic chain可以被定义为</strong><br>**Q 1: n = Q 1  Q 2  ···  Qn **</p>
+<p>API 命名语义上包含这多种信息 例如：<strong>action and operation object</strong>，将单个API可以拆解成以下形式<br><strong>q i =&lt; action i , object i , class i , category i &gt; .</strong><br><img src="/2023/11/05/A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features/1697982835143-b4676c95-5990-4e3e-8384-8891152712e0.png" alt="image.png"><br><strong>与上文API Sequence的重定义一样，Semantic chain可以被定义为</strong><br>**Q 1: n = Q 1  Q 2  ···  Qn **</p>
 </li>
 </ul>
 <p><img src="https://cdn.nlark.com/yuque/0/2023/png/38969425/1697983052216-5323026d-ade2-4370-9b37-82f7126a5c1a.png#averageHue=%23f4f1f1&clientId=u5b663740-94d7-4&from=paste&height=436&id=uf01f350f&originHeight=871&originWidth=1581&originalType=binary&ratio=2&rotation=0&showTitle=false&size=344348&status=done&style=none&taskId=ubadc5bbb-51df-4349-840f-1375c27d241&title=&width=790.5" alt="image.png"></p>
@@ -120,9 +120,9 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/38969425/1697983286524-9d529b7a-b7d7-43e5-ade8-d6af39537cb4.png#averageHue=%23f5f4f0&clientId=u5b663740-94d7-4&from=paste&height=377&id=u8fad2bf3&originHeight=754&originWidth=590&originalType=binary&ratio=2&rotation=0&showTitle=false&size=172921&status=done&style=none&taskId=uac946fa2-1ce1-4b5e-802f-19f0e2390cf&title=&width=295" alt="image.png"><br><a name="WdWKi"></a></p>
-<h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><p><img src="https://cdn.nlark.com/yuque/0/2023/png/38969425/1698237042639-6237a5fb-08d9-429e-b618-adf004d5cfdb.png#averageHue=%23eeeeee&clientId=u3d33aeed-a04d-4&from=paste&height=279&id=u05cf0166&originHeight=558&originWidth=1808&originalType=binary&ratio=2&rotation=0&showTitle=false&size=143176&status=done&style=none&taskId=u7734bc51-4956-44c4-a902-5380e19811e&title=&width=904" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2023/png/38969425/1698237121923-f97e7b36-fa28-4d33-8647-c2ab159b7591.png#averageHue=%23f6f5f4&clientId=u3d33aeed-a04d-4&from=paste&height=620&id=u6a0f0613&originHeight=1240&originWidth=1262&originalType=binary&ratio=2&rotation=0&showTitle=false&size=599586&status=done&style=none&taskId=u79193d8b-0930-4c0f-a47f-a9a8dd45ebc&title=&width=631" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2023/png/38969425/1698237052665-204d944e-0a1f-469d-a29d-48ad99728ae5.png#averageHue=%23f0f0f0&clientId=u3d33aeed-a04d-4&from=paste&height=510&id=ue3df28ad&originHeight=1020&originWidth=1760&originalType=binary&ratio=2&rotation=0&showTitle=false&size=293284&status=done&style=none&taskId=u19c544d1-7ea2-4f8d-bdb6-a3ab5409538&title=&width=880" alt="image.png"></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/38969425/1698237141082-4cb76a1f-fdbf-479a-9eb1-57b36bfcc610.png#averageHue=%23f7f7f6&clientId=u3d33aeed-a04d-4&from=paste&height=635&id=u92e628d8&originHeight=1270&originWidth=1344&originalType=binary&ratio=2&rotation=0&showTitle=false&size=432504&status=done&style=none&taskId=ud9fc83e3-b9b0-48bc-acc0-45568b2c92c&title=&width=672" alt="image.png"><br><a name="sSVDG"></a></p>
+<p><img src="/2023/11/05/A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features/1697983286524-9d529b7a-b7d7-43e5-ade8-d6af39537cb4.png" alt="image.png"><br><a name="WdWKi"></a></p>
+<h4 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h4><p><img src="/2023/11/05/A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features/1698237042639-6237a5fb-08d9-429e-b618-adf004d5cfdb.png" alt="image.png"><br><img src="/2023/11/05/A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features/1698237121923-f97e7b36-fa28-4d33-8647-c2ab159b7591.png" alt="image.png"><br><img src="/2023/11/05/A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features/1698237052665-204d944e-0a1f-469d-a29d-48ad99728ae5.png" alt="image.png"></p>
+<p><img src="/2023/11/05/A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features/1698237141082-4cb76a1f-fdbf-479a-9eb1-57b36bfcc610.png" alt="image.png"><br><a name="sSVDG"></a></p>
 <h4 id="实验结果-1"><a href="#实验结果-1" class="headerlink" title="实验结果"></a>实验结果</h4><p>总结</p>
 <ul>
 <li>xxxxxx</li>
@@ -165,7 +165,7 @@
 <p>3.打开主题下的_config.yml文件,在menu中添加上 不会编程的Kinferiority：/</p>
 <p><strong>此处==：/==代表回到主页</strong></p>
 <p>然后我们在创建的文件夹下面继续编写markdown文件就可以啦。</p>
-<p><img src="/hexo%E4%BF%AE%E6%94%B9%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%96%87%E5%AD%97.assets/image-20231105155538146.png" alt="image-20231105155538146"></p>
+<p><img src="/2021/02/03/hexo%E4%BF%AE%E6%94%B9%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%96%87%E5%AD%97/image-20231105155538146.png" alt="image-20231105155538146"></p>
 ]]></content>
   </entry>
   <entry>
