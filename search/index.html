@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
   
-  <title>test - Mr.K</title>
+  <title>Search - Mr.K</title>
   
     <link rel="shortcut icon" href="/favicon.ico">
   
@@ -16,17 +16,13 @@
   
   
   
-  <meta property="og:title" content="test - Mr.K" />
+  <meta property="og:title" content="Search - Mr.K" />
   
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="website" />
   
-  <meta property="og:url" content="http://example.com/2023/11/05/test/index.html" />
+  <meta property="og:url" content="http://example.com/search/index.html" />
   
   <meta property="og:image" content="/favicon.ico" />
-  
-  <meta property="og:article:published_time" content="2023-11-05T09:58:41.000Z" />
-  
-  <meta property="og:article:author" content="Kjr" />
   
   
 
@@ -76,11 +72,23 @@
   
   
   
+<link rel="stylesheet" href="/css/archive.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/search.css">
+
+  
   
   
 
   
-<meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
     <body
         data-color-scheme="auto"
         data-uppercase-categories="true"
@@ -96,6 +104,8 @@
         data-toc-max-depth="2"
         
         
+        data-search-path="search.json"
+        
     >
         <nav id="theme-nav">
     <div class="inner">
@@ -106,6 +116,14 @@
             
             
             <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">Tags</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">Categories</a>
             
             
             
@@ -128,65 +146,17 @@
     </div>
 </nav>
         
-<article class="post">
+    <div class="container">
     <div class="meta">
-        
-
-        
-        <div class="date" id="date">
-            <span>November</span>
-            <span>5,</span>
-            <span>2023</span>
-        </div>
-        
-
-        <h2 class="title">test</h2>
+        <h2 class="title">
+            Search
+        </h2>
     </div>
-
-    <div class="divider"></div>
-
-    <div class="content">
-        
-    </div>
-
-    
-    <div class="about">
-        <h1>About this Post</h1>
-        <div class="details">
-            <p>This post is written by Kjr, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
-        </div>
-        
-    </div>
-    
-
-    <div class="container post-prev-next">
-        
-        <a href="/2023/11/05/11/" class="next">
-            <div>
-                <div class="text">
-                    <p class="label">Next</p>
-                    <h3 class="title">11</h3>
-                </div>
-            </div>
-        </a>
-        
-        
-        <a href="/2023/11/05/A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features/" class="prev">
-            <div>
-                <div class="text">
-                    <p class="label">Previous</p>
-                    <h3 class="title">A-novel-deep-framework-for-dynamic-malware-detection-based-on-API-sequence-intrinsic-features</>
-                </div>
-            </div>
-        </a>
-        
-    </div>
-
-    
-        
-        
-    
-</article>
+    <form id="search-form">
+        <input type="text" id="searchbox" placeholder="Type to search...">
+    </form>
+    <div class="post-list archives" id="search-results"></div>
+</div>
 
         <footer>
     <div class="inner">
@@ -202,6 +172,8 @@
                 <a href="/tags" class="item">Tags</a>
                 
                 <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
                 
                 <a href="/about" class="item">About</a>
                 
@@ -242,6 +214,10 @@
 
         
 <script src="/js/main.js"></script>
+
+        
+        
+<script src="/js/search.js"></script>
 
         
         
