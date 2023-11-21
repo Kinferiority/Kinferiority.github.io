@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head prefix="og: https://ogp.me/ns#">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  
+  <title>Word2Vec - Mr.K</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+    <link rel='manifest' href='/manifest.json'>
+  
+
+  
+  
+  
+  <meta property="og:title" content="Word2Vec - Mr.K" />
+  
+  <meta property="og:type" content="article" />
+  
+  <meta property="og:url" content="http://example.com/2023/11/21/Word2Vec/index.html" />
+  
+  <meta property="og:image" content="/favicon.ico" />
+  
+  <meta property="og:article:published_time" content="2023-11-21T05:59:50.000Z" />
+  
+  <meta property="og:article:author" content="Kjr" />
+  
+  
+
+  
+<link rel="stylesheet" href="/css/var.css">
+
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+<link rel="stylesheet" href="/css/typography.css">
+
+  
+<link rel="stylesheet" href="/css/code-highlighting.css">
+
+  
+<link rel="stylesheet" href="/css/components.css">
+
+  
+<link rel="stylesheet" href="/css/nav.css">
+
+  
+<link rel="stylesheet" href="/css/paginator.css">
+
+  
+<link rel="stylesheet" href="/css/footer.css">
+
+  
+<link rel="stylesheet" href="/css/post-list.css">
+
+  
+  
+<link rel="stylesheet" href="/css/rainbow-banner.css">
+
+  
+  
+  
+<link rel="stylesheet" href="/css/toc.css">
+
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/post.css">
+
+  
+  
+  
+  
+  
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
+    <body
+        data-color-scheme="auto"
+        data-uppercase-categories="true"
+        
+        data-rainbow-banner="true"
+        data-rainbow-banner-shown="auto"
+        data-rainbow-banner-month="6"
+        data-rainbow-banner-colors="#e50000,#ff8d00,#ffee00,#008121,#004cff,#760188"
+        
+        data-config-root="/"
+        
+        data-toc="true"
+        data-toc-max-depth="2"
+        
+        
+    >
+        <nav id="theme-nav">
+    <div class="inner">
+        <a class="title" href="/">Blog</a>
+        <div class="nav-arrow"></div>
+        <div class="nav-items">
+            <a class="nav-item nav-item-home" href="/">Home</a>
+            
+            
+            <a class="nav-item" href="/archives">Archives</a>
+            
+            
+            
+            <a class="nav-item" href="/tags">Tags</a>
+            
+            
+            
+            <a class="nav-item" href="/categories">Categories</a>
+            
+            
+            
+            <a class="nav-item" href="/about">About</a>
+            
+            
+            
+            <a class="nav-item" target="_blank" rel="noopener" href="https://space.bilibili.com/344213153?spm_id_from=333.1007.0.0">Bilibili.</a>
+            
+            
+            
+            <a class="nav-item nav-item-github nav-item-icon" href="https://github.com/kinferiority" target="_blank" aria-label="GitHub">&nbsp;</a>
+            
+            
+            
+            <a class="nav-item nav-item-search nav-item-icon" href="/search" target="_blank" aria-label="Search">&nbsp;</a>
+            
+            
+        </div>
+    </div>
+</nav>
+        
+<article class="post">
+    <div class="meta">
+        
+        <div class="categories text-uppercase">
+        
+            <a href="/categories/Tools/">Tools</a>
+        
+        </div>
+        
+
+        
+        <div class="date" id="date">
+            <span>November</span>
+            <span>21,</span>
+            <span>2023</span>
+        </div>
+        
+
+        <h2 class="title">Word2Vec</h2>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
+        <h4 id="1-Word2Vec是什么"><a href="#1-Word2Vec是什么" class="headerlink" title="1. Word2Vec是什么"></a>1. Word2Vec是什么</h4><p>​    Word2Vec（Word to Vector）是一种用于学习单词嵌入（word embeddings）的技术，它能够将单词映射到实数向量。这个技术的核心思想是通过训练一个神经网络模型，使得每个单词都在高维空间中表示为一个稠密的向量，这个向量捕捉了单词之间的语义关系。</p>
+<h4 id="2-Word2Vec的基本原理"><a href="#2-Word2Vec的基本原理" class="headerlink" title="2. Word2Vec的基本原理"></a>2. <strong>Word2Vec的基本原理</strong></h4><ul>
+<li><p>上下文和中心词</p>
+</li>
+<li><ul>
+<li><strong>中心词（Center Word）：</strong> 中心词是在给定上下文的情况下，模型试图预测的目标词。在Skip-gram模型中，中心词是输入，而在CBOW模型中，中心词是输出。</li>
+<li><strong>上下文（Context）：</strong> 上下文是与中心词相关的词汇环境，即在训练模型时，用来预测中心词的周围词。在Skip-gram模型中，上下文是通过给定中心词来预测的词汇，而在CBOW模型中，上下文是用来预测中心词的输入。</li>
+</ul>
+</li>
+<li><p>Skip-gram和CBOW模型</p>
+</li>
+</ul>
+<p>​    Skip-gram（跳字模型）和CBOW（连续词袋模型）是Word2Vec中两个经典的模型，它们分别以不同的方式处理上下文和中心词，但都用于学习词向量。</p>
+<p><img src="/2023/11/21/Word2Vec/1700547515170-0ac30cc5-c516-49af-b34d-7568f4fabaae.png" alt="img"></p>
+<ul>
+<li><ul>
+<li>Skip-gram</li>
+</ul>
+</li>
+</ul>
+<p>​    在Skip-gram模型中，目标是从一个中心词中预测其周围的上下文词。该模型的基本思想是<strong>通过训练模型来最大化给定中心词情况下预测上下文词的概率</strong>。</p>
+<p><strong>训练过程：</strong></p>
+<ol>
+<li><ol>
+<li><ol>
+<li><strong>输入：</strong> 选择训练语料中的每个词作为中心词。</li>
+<li><strong>输出：</strong> 在给定中心词的情况下，从上下文中选择一个或多个词作为目标输出，形成训练样本。</li>
+<li><strong>网络结构：</strong> 使用一个带有嵌入层和Softmax输出层的神经网络。嵌入层将中心词映射到词向量，Softmax层输出每个词汇表中词的概率。</li>
+<li><strong>目标：</strong> 最大化预测上下文词的概率，使得在给定中心词的情况下，模型更有可能预测出真实的上下文词。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li><ul>
+<li>CBOW</li>
+</ul>
+</li>
+</ul>
+<p>​    在CBOW模型中，目标是从上下文的多个词中预测中心词。该模型试图<strong>通过上下文的信息来预测中心词。</strong></p>
+<h4 id="训练过程："><a href="#训练过程：" class="headerlink" title="训练过程："></a>训练过程：</h4><ol>
+<li><ol>
+<li><ol>
+<li><strong>输入：</strong> 选择训练语料中的一组词作为上下文。</li>
+<li><strong>输出：</strong> 将中心词作为目标输出，形成训练样本。</li>
+<li><strong>网络结构：</strong> 与Skip-gram相反，CBOW使用上下文词的词向量的平均或求和作为输入，然后通过Softmax输出中心词的概率。</li>
+<li><strong>目标：</strong> 最大化预测中心词的概率，使得在给定上下文的情况下，模型更有可能预测出真实的中心词。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ul>
+<li>Negative Sampling</li>
+</ul>
+<p>​    Negative Sampling（负采样）是用于<strong>优化Word2Vec模型的一种训练技术</strong>，旨在减少计算开销并加速模型的训练过程。Word2Vec的原始形式使用Softmax作为输出层，它需要对词汇表中所有词进行概率计算，导致了计算复杂度的增加。Negative Sampling通过引入负例样本，将多类分类问题转化为二元分类问题，从而降低了计算开销。</p>
+<p>基本思想：</p>
+<ol>
+<li><ol>
+<li><strong>原始目标函数：</strong> Word2Vec的目标是最大化给定中心词的情况下预测上下文词的概率，通过Softmax层进行多类别分类。</li>
+<li><strong>问题：</strong> 对于大规模的词汇表，计算所有词的Softmax概率非常昂贵，尤其是在训练过程中需要频繁更新参数。</li>
+<li><strong>解决方法：</strong> 负采样将问题转化为二元分类问题，为每个中心词-上下文词对引入一小部分负例样本（未出现在上下文中的词），然后通过Sigmoid函数进行二元分类。</li>
+</ol>
+</li>
+</ol>
+<p>​    考虑一个小型的词汇表，其中包含以下单词：{“cat”, “dog”, “fish”, “bird”, “apple”, “banana”}，使用一个简化的Word2Vec模型，以便更清晰地说明Negative Sampling的步骤。</p>
+<p>​    假设我们有一个训练样本：中心词为 “cat”，上下文词为 [“dog”, “fish”]。我们希望通过Negative Sampling训练模型来预测在给定 “cat” 的情况下，出现 “dog” 和 “fish” 的概率。</p>
+<ol>
+<li><strong>选择正例样本：</strong> 中心词为 “cat”，上下文词为 [“dog”, “fish”]。</li>
+<li><strong>选择负例样本：</strong> 假设我们选择两个负例样本，即未出现在上下文中的词。可能的负例样本包括{“bird”, “apple”, “banana”}。</li>
+<li><strong>更新参数：</strong> 对于正例样本，我们希望模型最大化预测 “dog” 和 “fish” 的概率为1。对于负例样本，我们希望模型最大化预测它们的概率为0。</li>
+</ol>
+<ul>
+<li><ul>
+<li>损失函数为二元交叉熵（Binary Cross-Entropy Loss）：</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>对于正例样本 “dog”：最大化 log(P(“dog”|”cat”))。</li>
+<li>对于正例样本 “fish”：最大化 log(P(“fish”|”cat”)。</li>
+<li>对于负例样本 “bird”：最大化 log(1 - P(“bird”|”cat”))。</li>
+<li>对于负例样本 “apple”：最大化 log(1 - P(“apple”|”cat”))。</li>
+<li>对于负例样本 “banana”：最大化 log(1 - P(“banana”|”cat”))。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>在实际训练中，通过梯度下降等优化算法，更新模型参数，使得对于正例样本概率增加，对于负例样本概率减小，以达到最小化损失函数的目标。</p>
+<h4 id="3-Word2Vec的训练过程"><a href="#3-Word2Vec的训练过程" class="headerlink" title="3. Word2Vec的训练过程"></a>3. <strong>Word2Vec的训练过程</strong></h4><ul>
+<li><p>数据预处理</p>
+</li>
+<li><ul>
+<li>分词</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>中文分词工具jieba</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import jieba # 示例文本</span><br><span class="line">text = "我喜欢使用jieba进行中文分词，它非常方便实用。"# 精确模式分</span><br><span class="line">seg_list = jieba.lcut(text) # 输出分词结果</span><br><span class="line">print(f"精确模式分词结果: {seg_list}")</span><br><span class="line">精确模式分词结果: ['我', '喜欢', '使用', 'jieba', '进行', '中文', '分词', '，', '它', '非常', '方便', '实用', '。']</span><br></pre></td></tr></table></figure>
+<p>分词后的列表中并未去除标点符号，需使用正则表达式进行去除</p>
+<ul>
+<li><ul>
+<li><ul>
+<li>英文分词工具<strong>NLTK (Natural Language Toolkit)</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from nltk.tokenize import word_tokenize</span><br><span class="line">text = "Natural language processing is a subfield of artificial intelligence."</span><br><span class="line">words = word_tokenize(text)</span><br><span class="line">print(words)</span><br><span class="line">['Natural', 'language', 'processing', 'is', 'a', 'subfield', 'of', 'artificial', 'intelligence', '.']</span><br></pre></td></tr></table></figure>
+<ul>
+<li>模型训练</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 调用Word2Vec训练</span><br><span class="line"># 参数 size:词向量的维度 window：下上文的宽度，min_count为考虑计算的单词的最低词频阀值</span><br><span class="line">model = Word2Vec(lines,vector_size=20,window=2,min_count=3,epochs=7,negative=10,sg=1)</span><br><span class="line"># sg=1 表示使用 Skip-Gram 模型，sg=0 表示使用 CBOW 模型。Skip-Gram 模型通常在小规模数据集上效果较好，而 CBOW 模型在大规模数据集上更为高效</span><br><span class="line">print(f"孔明的词向量：{model.wv.get_vector('孔明')}")</span><br><span class="line">print(f"和孔明相关度最高的前20个词语：{model.wv.most_similar('孔明',topn=20)}")。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">孔明的词向量：[-0.02797242 0.19620362 -0.14690119 -0.11380875 0.48551074 -0.28467286</span><br><span class="line"></span><br><span class="line">0.23104745 1.0519167 0.09491358 0.143944 -0.06146332 0.3378446</span><br><span class="line"></span><br><span class="line">0.5793617 -0.1334629 1.0026382 1.3188007 0.52629 -0.00785274</span><br><span class="line"></span><br><span class="line">-0.76063794 -0.7989686 ]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">和孔明相关度最高的前20个词语：[('周瑜', 0.9152633547782898), ('先主', 0.9044222831726074), ('维', 0.8982763886451721), ('关公', 0.8975562453269958), ('玄德', 0.8963515162467957), ('庞统', 0.870507001876831), ('门吏', 0.8688473105430603), ('孙权', 0.8670101761817932), ('袁术', 0.8654335141181946), ('孙夫人', 0.8613810539245605), ('良久', 0.8585713505744934), ('马谡', 0.8579079508781433), ('后主', 0.856177568435669), ('懿', 0.8559975028038025), ('司马昭', 0.8554885387420654), ('孙策', 0.8547292351722717), ('翼德', 0.8537977337837219), ('钟会', 0.8522170186042786), ('陆逊', 0.849563717842102), ('策', 0.84769207239151)]</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>模型评估</p>
+</li>
+<li><ul>
+<li>类比任务</li>
+</ul>
+</li>
+</ul>
+<p>​    <strong>most_similar</strong>方法来找到与给定单词列表（positive）相关联的单词，同时排除与另一组单词列表（negative）相关联的单词。具体而言，它在词向量空间中找到与”玄德”和”曹操”最相似且与”孔明”最不相似的单词。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 类比实验</span><br><span class="line"># 玄德－孔明＝？－曹操</span><br><span class="line">words = model.wv.most_similar(positive=['玄德', '曹操'], negative=['孔明'])</span><br><span class="line">print(words)</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li><ul>
+<li>词向量可视化</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># 可视化</span><br><span class="line"># #model.wv 是一个属性，表示Word Vectors（词向量）的缩写，它包含了训练得到的词向量信息</span><br><span class="line"># 将词向量投影到二维空间</span><br><span class="line">rawWordVec = []</span><br><span class="line">words2ind = {}</span><br><span class="line">for i, w in enumerate(model.wv.index_to_key):</span><br><span class="line">    rawWordVec.append(model.wv[w])</span><br><span class="line">    words2ind[w] = i</span><br><span class="line">rawWordVec = np.array(rawWordVec)</span><br><span class="line"># n_components 参数决定了降维后的数据保留的特征数量</span><br><span class="line">X_reduced = PCA(n_components=2).fit_transform(rawWordVec)</span><br><span class="line">print(rawWordVec.shape)</span><br><span class="line">print(X_reduced.shape)</span><br><span class="line"># 由20维降至2维</span><br><span class="line"></span><br><span class="line"># 绘制星空图</span><br><span class="line"># 绘制所有单词向量的二维空间投影</span><br><span class="line"># Figure 是绘图区域的容器，而 Axes 则是实际绘图的区域。一个 Figure 可以包含多个 Axes，每个 Axes 可以看作一个子图</span><br><span class="line">fig = plt.figure(figsize=(15,10))</span><br><span class="line">ax = fig.gca()</span><br><span class="line">ax.set_facecolor('white')</span><br><span class="line"># alpha=0.3：设置散点的透明度</span><br><span class="line"># color='black'：指定散点的颜色</span><br><span class="line">ax.plot(X_reduced[:,0],X_reduced[:,-1],'.',markersize=1,alpha=0.3,color='black')</span><br><span class="line"># 绘制几个特殊单词的向量</span><br><span class="line">words = ['孙权', '刘备', '曹操', '周瑜', '诸葛亮', '司马懿','汉献帝']</span><br><span class="line"># 设置中文字体 否则乱码</span><br><span class="line">zhfont1 = matplotlib.font_manager.FontProperties(fname="./华文仿宋.ttf",size=16)</span><br><span class="line">for w in words:</span><br><span class="line">    if w in words2ind:</span><br><span class="line">        ind = words2ind[w]</span><br><span class="line">        xy=X_reduced[ind]</span><br><span class="line">        plt.plot(xy[0],xy[1],alpha=1,color='orange',markersize=10)</span><br><span class="line">        plt.text(xy[0],xy[1],w,fontproperties=zhfont1,alpha=1,color='red')</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2023/11/21/Word2Vec/image-20231121150924367.png" alt="image-20231121150924367"></p>
+<ul>
+<li>PCA</li>
+</ul>
+<p>​    PCA（Principal Component Analysis，主成分分析）是一种常用的降维技术，用于减少数据集的维度，同时保留数据集中的信息。PCA通过线性变换将原始数据映射到一个新的坐标系，其中坐标轴按照数据的方差递减的顺序排列，从而找到数据中的主要特征。</p>
+<p><strong>主成分分析（PCA）的过程：</strong></p>
+<ol>
+<li><ol>
+<li><ol>
+<li><strong>数据标准化：</strong> 对原始数据进行标准化，确保每个特征具有相同的尺度。</li>
+<li><strong>计算协方差矩阵：</strong> 计算标准化后的数据的协方差矩阵。</li>
+<li><strong>计算特征值和特征向量：</strong> 对协方差矩阵进行特征值分解，得到特征值和对应的特征向量。特征向量构成了新的坐标系，而特征值表示数据在每个特征向量方向上的方差。</li>
+<li><strong>选择主成分：</strong> 按照特征值从大到小的顺序选择前k个特征值对应的特征向量，这些特征向量构成了新的坐标系，称为主成分。</li>
+<li><strong>投影：</strong> 将原始数据投影到选定的主成分上，得到降维后的数据。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="4-Embedding-Layer"><a href="#4-Embedding-Layer" class="headerlink" title="4. Embedding Layer"></a>4. Embedding Layer</h4><p>​    Embedding可以抽象的理解为：为了让one-hot 具有更强的语义特征而设计的描述one-hot不同维度的特征。只不过这个维度和特征是通过某种形式学习得到。由w2c 思想发展而来，后续NLP 任务都加入了Embedding Layer 作为标准的做法。因为embedding 和 one-hot 相比能够通过预训练带来更多的一些特征信息。</p>
+<p>​    Embedding 在NLP 的过程中，实际是一个升维的操作。从不带有任何信息的字典序 （1维）升维到 dim 维 ： 1 * 1 —&gt; 1 * dim而在推荐、广告领域，通过one-hot 乘以参数矩阵，才是降维操作！！！： 1 * feature_dim —&gt; 1 * dim<br>总结一下：</p>
+<p>​    训练embedding 的本质是： 通过一系列目标任务，训练出一个由目标文本转换到特定向量的模型。不同的目标任务会带来不同的词向量意义，这一系列目标任务被称为<strong>预训练任务</strong>，embedding 的本质就是： 通过训练的方式 ，将一些低维、离散、不带任何意义的序号升华成带有<strong>特定任务性质</strong>的高维特征。如：火锅店到底好不好吃、贵不贵</p>
+<p>​    因此说万物皆可embedding 的原因就是：基本上的任务及模型都可以视为广义的embedding，BERT、GPT-3 、ELMO 、Word2vec 都是embedding ，只是任务、模型不同罢了，embedding 不止单指Embedding Layer<strong>通过映射的方式，用连续不同维度的特征数据来表示一个真实世界中的实体。</strong></p>
+<p> 参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1vS4y1N7mo/?spm_id_from=333.337.search-card.all.click">up主</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/81032021">知乎</a></p>
+
+    </div>
+
+    
+    <div class="about">
+        <h1>About this Post</h1>
+        <div class="details">
+            <p>This post is written by Kjr, licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc/4.0">CC BY-NC 4.0</a>.</p>
+        </div>
+        
+        <p class="tags">
+            
+            <i class="icon"></i>
+            <a href="/tags/NLP/" class="tag">#NLP</a>
+        </p>
+        
+    </div>
+    
+
+    <div class="container post-prev-next">
+        <a class="next"></a>
+        
+        <a href="/2023/11/07/%E4%BD%BF%E7%94%A8SVM%E8%BF%9B%E8%A1%8C%E5%9E%83%E5%9C%BE%E7%9F%AD%E4%BF%A1%E5%88%86%E7%B1%BB/" class="prev">
+            <div>
+                <div class="text">
+                    <p class="label">Previous</p>
+                    <h3 class="title">使用SVM进行垃圾短信分类</>
+                </div>
+            </div>
+        </a>
+        
+    </div>
+
+    
+        
+        
+    
+</article>
+
+        <footer>
+    <div class="inner">
+        <div class="links">
+            
+            <div class="group">
+                <h2 class="title">Blog</h2>
+                
+                <a href="/" class="item">Blog</a>
+                
+                <a href="/archives" class="item">Archives</a>
+                
+                <a href="/tags" class="item">Tags</a>
+                
+                <a href="/categories" class="item">Categories</a>
+                
+                <a href="/search" class="item">Search</a>
+                
+                <a href="/about" class="item">About</a>
+                
+            </div>
+            
+            <div class="group">
+                <h2 class="title">Me</h2>
+                
+                <a target="_blank" rel="noopener" href="https://github.com/kinferiority" class="item">GitHub</a>
+                
+                <a href="mailto:Kinferiority@outlook.com" class="item">Email</a>
+                
+            </div>
+            
+        </div>
+        <span>&copy; 2023 Kjr<br>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> </span>
+        
+        
+            <br>
+            <div class="color-scheme-toggle" role="radiogroup" id="theme-color-scheme-toggle">
+                <label>
+                    <input type="radio" value="light">
+                    <span>Light</span>
+                </label>
+                <label>
+                    <input type="radio" value="dark">
+                    <span>Dark</span>
+                </label>
+                <label>
+                    <input type="radio" value="auto">
+                    <span>Auto</span>
+                </label>
+            </div>
+        
+    </div>
+</footer>
+
+
+        
+<script src="/js/main.js"></script>
+
+        
+        
+        
+
+        
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            window.addEventListener('load', () => {
+                ScrollReveal({ delay: 250, reset: true, easing: 'cubic-bezier(0, 0, 0, 1)' })
+                ScrollReveal().reveal('.post-list-item .cover-img img')
+                ScrollReveal().reveal('.post-list-item, .card, .content p img, .content .block-large img', { distance: '60px', origin: 'bottom', duration: 800 })
+            })
+        </script>
+        
+    </body>
+</html>
