@@ -1,6 +1,5 @@
 body {
   background-color: var(--body-bg);
-  font-family: 'AaManYuShouXieTi（JianFan）', sans-serif; /* 应用你的自定义字体 */
 }
 
 .post {
@@ -35,15 +34,6 @@ body {
   font-weight: 400;
   letter-spacing: 0.012em;
 }
-
-/* 剩余的样式继续保持不变 */
-
-/* 添加字体引用 */
-@font-face {
-  font-family: 'AaManYuShouXieTi（JianFan）';
-  src: url('https://github.com/Kinferiority/Kinferiority.github.io/blob/main/%E5%AD%97%E4%BD%93/AaManYuShouXieTi%EF%BC%88JianFan%EF%BC%89-2.ttf') format('truetype');
-}
-
 
 .content p,
 .content h1,
