@@ -29,10 +29,12 @@ body {
 }
 
 .content {
+  font-family: "LingWai SC", "Microsoft YaHei", sans-serif;
   font-size: 19px;
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: 0.012em;
+
 }
 
 .content p,
