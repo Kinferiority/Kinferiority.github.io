@@ -29,12 +29,10 @@ body {
 }
 
 .content {
-  font-family: "LingWai SC", "Microsoft YaHei", sans-serif;
   font-size: 19px;
   line-height: 1.4211;
   font-weight: 400;
   letter-spacing: 0.012em;
-
 }
 
 .content p,
@@ -172,12 +170,9 @@ hr,
 .content ol {
   padding: 0 16px;
   padding-left: 32px;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
   max-width: calc(800px - 16px * 2);
-}
-
-.content ul *,
-.content ol * {
-  padding: 0;
 }
 
 .content blockquote {
