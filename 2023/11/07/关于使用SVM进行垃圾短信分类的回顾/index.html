@@ -84,7 +84,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head>
     <body
         data-color-scheme="auto"
         data-uppercase-categories="true"
@@ -168,12 +168,16 @@
 <h3 id="1-1文本向量化"><a href="#1-1文本向量化" class="headerlink" title="1.1文本向量化"></a>1.1文本向量化</h3><p>​    文本向量化就是指用数值向量来表示文本的语义，即，把人类可读的文本转化成机器可读形式。</p>
 <p>​    如何转化成机器可读的形式？这里用到了信息检索领域的<strong>词袋模型</strong>，词袋模型在部分保留文本语义的前提下对文本进行向量化表示。</p>
 <h3 id="1-2-词袋及编码方法"><a href="#1-2-词袋及编码方法" class="headerlink" title="1.2 词袋及编码方法"></a>1.2 词袋及编码方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 Jane wants to go to Shenzhen. </span><br><span class="line">2 Bob wants to go to Shanghai.</span><br></pre></td></tr></table></figure>
+
 <p>​    将所有词语装进一个袋子里，不考虑其词法和语序的问题，即每个词语都是独立的。例如上面2个例句，就可以构成一个词袋，袋子里包括Jane、wants、to、go、Shenzhen、Bob、Shanghai。假设建立一个数组（或词典）用于映射匹配：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Jane, wants, to, go, Shenzhen, Bob, Shanghai]</span><br></pre></td></tr></table></figure>
+
 <p>如果是One-Hot表示则，不统计出现的次数，只统计是否出现：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 [1,1,1,1,1,0,0]</span><br><span class="line">2 [0,1,1,1,0,1,1]</span><br></pre></td></tr></table></figure>
+
 <p>那么上面两个例句就可以用以下两个向量表示，对应的下标与映射数组的下标相匹配，其值为该词语出现的次数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 词典的key值：</span><br><span class="line">[Jane, wants, to, go, Shenzhen, Bob, Shanghai]</span><br><span class="line">1 [1,1,2,1,1,0,0] </span><br><span class="line">2 [0,1,2,1,0,1,1]</span><br></pre></td></tr></table></figure>
+
 
 
 <p>​    这两个词频向量就是词袋模型，可以很明显的看到语序关系已经完全丢失。CountVectorizer默认采用的是TF表示法，TF表示法的数值计算规则为：词语序列中出现的词语其数值为词语在所在文本中的频次，词语序列中未出现的词语其数值为0。</p>
@@ -208,6 +212,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.feature_extraction.text import CountVectorizer</span><br><span class="line"></span><br><span class="line"># 创建CountVectorizer对象，配置小写化和停止词</span><br><span class="line"></span><br><span class="line">vectorizer = CountVectorizer(lowercase=True, stop_words='english')</span><br><span class="line"></span><br><span class="line"># 拟合文本数据并转化为词频矩阵</span><br><span class="line"></span><br><span class="line">corpus = ["This is a sample sentence.", "Another example sentence.", "And one more sentence."]</span><br><span class="line"></span><br><span class="line">X = vectorizer.fit_transform(corpus)</span><br><span class="line"></span><br><span class="line"># 输出词频矩阵</span><br><span class="line"></span><br><span class="line">print(X.toarray())</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
+
 <h2 id="4-Pipeline是什么？如何使用？"><a href="#4-Pipeline是什么？如何使用？" class="headerlink" title="4.Pipeline是什么？如何使用？"></a>4.Pipeline是什么？如何使用？</h2><p>​    Pipeline 机制是一种用于将多个数据处理和机器学习步骤有序组合在一起的机制，以形成一个整体工作流程。它在机器学习中非常有用，可以简化代码、提高可读性，还可以避免一些常见的错误。在 scikit-learn（一个常用的 Python 机器学习库）中，Pipeline 由 <strong>sklearn.pipeline.Pipeline</strong> 类实现。</p>
 <p>Pipeline 机制的关键特点包括：</p>
 <ol>
@@ -219,6 +224,7 @@
 <li>防止数据泄漏：Pipeline 可以确保在训练和测试阶段不会出现数据泄漏问题，因为它控制了数据流的顺序。</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">from sklearn.pipeline import Pipeline</span><br><span class="line"></span><br><span class="line">from sklearn.preprocessing import StandardScaler</span><br><span class="line"></span><br><span class="line">rom sklearn.svm import SVC</span><br><span class="line"></span><br><span class="line"># 创建一个 Pipeline 包含数据标准化和支持向量机分类器</span><br><span class="line"></span><br><span class="line">pipeline= Pipeline([</span><br><span class="line"></span><br><span class="line">	('scaler', StandardScaler()), # 步骤1：数据标准化</span><br><span class="line"></span><br><span class="line">	('svm', SVC()) # 步骤2：支持向量机分类器</span><br><span class="line"></span><br><span class="line">`])	</span><br><span class="line"></span><br><span class="line"># 使用 Pipeline 进行训练和预测</span><br><span class="line"></span><br><span class="line">pipeline.fit(X_train, y_train) # 训练模型</span><br><span class="line"></span><br><span class="line">y_pred = pipeline.predict(X_test) # 预测</span><br><span class="line"></span><br><span class="line"># 评估模型性能</span><br><span class="line"></span><br><span class="line">accuracy = accuracy_score(y_test, y_pred)</span><br><span class="line"></span><br><span class="line">print(f'Accuracy: {accuracy}')</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <p>参考文章：</p>
 <p><a target="_blank" rel="noopener" href="https://huaweicloud.csdn.net/6380696adacf622b8df87192.html?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~activity-1-116358509-blog-130541761.235%5Ev38%5Epc_relevant_anti_t3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~activity-1-116358509-blog-130541761.235%5Ev38%5Epc_relevant_anti_t3&utm_relevant_index=2">词袋模型（Bag of Words Model）</a></p>
 <p><a target="_blank" rel="noopener" href="https://rooney.blog.csdn.net/article/details/121522295?spm=1001.2101.3001.6650.3&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-121522295-blog-130541761.235%5Ev38%5Epc_relevant_anti_t3&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~Rate-3-121522295-blog-130541761.235%5Ev38%5Epc_relevant_anti_t3&utm_relevant_index=6">【NLP】词袋模型（bag of words model）和词嵌入模型（word embedding model）</a></p>

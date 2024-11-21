@@ -84,7 +84,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head>
     <body
         data-color-scheme="auto"
         data-uppercase-categories="true"
@@ -271,6 +271,7 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import jieba # 示例文本</span><br><span class="line">text = "我喜欢使用jieba进行中文分词，它非常方便实用。"# 精确模式分</span><br><span class="line">seg_list = jieba.lcut(text) # 输出分词结果</span><br><span class="line">print(f"精确模式分词结果: {seg_list}")</span><br><span class="line">精确模式分词结果: ['我', '喜欢', '使用', 'jieba', '进行', '中文', '分词', '，', '它', '非常', '方便', '实用', '。']</span><br></pre></td></tr></table></figure>
+
 <p>分词后的列表中并未去除标点符号，需使用正则表达式进行去除</p>
 <ul>
 <li><ul>
@@ -282,10 +283,12 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from nltk.tokenize import word_tokenize</span><br><span class="line">text = "Natural language processing is a subfield of artificial intelligence."</span><br><span class="line">words = word_tokenize(text)</span><br><span class="line">print(words)</span><br><span class="line">['Natural', 'language', 'processing', 'is', 'a', 'subfield', 'of', 'artificial', 'intelligence', '.']</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>模型训练</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># 调用Word2Vec训练</span><br><span class="line"># 参数 size:词向量的维度 window：下上文的宽度，min_count为考虑计算的单词的最低词频阀值</span><br><span class="line">model = Word2Vec(lines,vector_size=20,window=2,min_count=3,epochs=7,negative=10,sg=1)</span><br><span class="line"># sg=1 表示使用 Skip-Gram 模型，sg=0 表示使用 CBOW 模型。Skip-Gram 模型通常在小规模数据集上效果较好，而 CBOW 模型在大规模数据集上更为高效</span><br><span class="line">print(f"孔明的词向量：{model.wv.get_vector('孔明')}")</span><br><span class="line">print(f"和孔明相关度最高的前20个词语：{model.wv.most_similar('孔明',topn=20)}")。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">孔明的词向量：[-0.02797242 0.19620362 -0.14690119 -0.11380875 0.48551074 -0.28467286</span><br><span class="line"></span><br><span class="line">0.23104745 1.0519167 0.09491358 0.143944 -0.06146332 0.3378446</span><br><span class="line"></span><br><span class="line">0.5793617 -0.1334629 1.0026382 1.3188007 0.52629 -0.00785274</span><br><span class="line"></span><br><span class="line">-0.76063794 -0.7989686 ]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">和孔明相关度最高的前20个词语：[('周瑜', 0.9152633547782898), ('先主', 0.9044222831726074), ('维', 0.8982763886451721), ('关公', 0.8975562453269958), ('玄德', 0.8963515162467957), ('庞统', 0.870507001876831), ('门吏', 0.8688473105430603), ('孙权', 0.8670101761817932), ('袁术', 0.8654335141181946), ('孙夫人', 0.8613810539245605), ('良久', 0.8585713505744934), ('马谡', 0.8579079508781433), ('后主', 0.856177568435669), ('懿', 0.8559975028038025), ('司马昭', 0.8554885387420654), ('孙策', 0.8547292351722717), ('翼德', 0.8537977337837219), ('钟会', 0.8522170186042786), ('陆逊', 0.849563717842102), ('策', 0.84769207239151)]</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><p>模型评估</p>
 </li>
@@ -298,6 +301,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 类比实验</span><br><span class="line"># 玄德－孔明＝？－曹操</span><br><span class="line">words = model.wv.most_similar(positive=['玄德', '曹操'], negative=['孔明'])</span><br><span class="line">print(words)</span><br></pre></td></tr></table></figure>
 
 
+
 <ul>
 <li><ul>
 <li>词向量可视化</li>
@@ -305,6 +309,7 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># 可视化</span><br><span class="line"># #model.wv 是一个属性，表示Word Vectors（词向量）的缩写，它包含了训练得到的词向量信息</span><br><span class="line"># 将词向量投影到二维空间</span><br><span class="line">rawWordVec = []</span><br><span class="line">words2ind = {}</span><br><span class="line">for i, w in enumerate(model.wv.index_to_key):</span><br><span class="line">    rawWordVec.append(model.wv[w])</span><br><span class="line">    words2ind[w] = i</span><br><span class="line">rawWordVec = np.array(rawWordVec)</span><br><span class="line"># n_components 参数决定了降维后的数据保留的特征数量</span><br><span class="line">X_reduced = PCA(n_components=2).fit_transform(rawWordVec)</span><br><span class="line">print(rawWordVec.shape)</span><br><span class="line">print(X_reduced.shape)</span><br><span class="line"># 由20维降至2维</span><br><span class="line"></span><br><span class="line"># 绘制星空图</span><br><span class="line"># 绘制所有单词向量的二维空间投影</span><br><span class="line"># Figure 是绘图区域的容器，而 Axes 则是实际绘图的区域。一个 Figure 可以包含多个 Axes，每个 Axes 可以看作一个子图</span><br><span class="line">fig = plt.figure(figsize=(15,10))</span><br><span class="line">ax = fig.gca()</span><br><span class="line">ax.set_facecolor('white')</span><br><span class="line"># alpha=0.3：设置散点的透明度</span><br><span class="line"># color='black'：指定散点的颜色</span><br><span class="line">ax.plot(X_reduced[:,0],X_reduced[:,-1],'.',markersize=1,alpha=0.3,color='black')</span><br><span class="line"># 绘制几个特殊单词的向量</span><br><span class="line">words = ['孙权', '刘备', '曹操', '周瑜', '诸葛亮', '司马懿','汉献帝']</span><br><span class="line"># 设置中文字体 否则乱码</span><br><span class="line">zhfont1 = matplotlib.font_manager.FontProperties(fname="./华文仿宋.ttf",size=16)</span><br><span class="line">for w in words:</span><br><span class="line">    if w in words2ind:</span><br><span class="line">        ind = words2ind[w]</span><br><span class="line">        xy=X_reduced[ind]</span><br><span class="line">        plt.plot(xy[0],xy[1],alpha=1,color='orange',markersize=10)</span><br><span class="line">        plt.text(xy[0],xy[1],w,fontproperties=zhfont1,alpha=1,color='red')</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
 
 <p><img src="/2023/11/21/Word2Vec/image-20231121150924367.png" alt="image-20231121150924367"></p>
 <ul>
